@@ -45,7 +45,7 @@ h1{font-size:42px}
 
 <form id="leadForm">
 <label>Full Name</label>
-<input id="name" placeholder="Enter your name" required>
+<input id="names" placeholder="Enter your name" required>
 
 <label>Email</label>
 <input id="email" type="email" placeholder="Enter your email" required>
@@ -75,7 +75,7 @@ document.getElementById("leadForm").addEventListener("submit",async function(e){
 e.preventDefault();
 const status=document.getElementById("status");
 const data={
-name:name.value,
+names:names.value,
 email:email.value,
 phone:phone.value,
 message:message.value
@@ -89,11 +89,11 @@ body:JSON.stringify(data)
 const result=await response.json();
 if(result.success){
 status.style.color="#4ade80";
-status.innerText="Lead saved successfully!";
+status.innerText="Congratulations! Submit successfully.";
 this.reset();
 }else{
 status.style.color="#ff6b6b";
-status.innerText="Error saving lead.";
+status.innerText="Error submitting details.";
 }
 }catch(err){
 status.style.color="#ff6b6b";
